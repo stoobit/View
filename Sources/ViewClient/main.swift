@@ -3,17 +3,22 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        AgeView(age: 10, name: "hi")
+        ItemView(user: User(name: "Till"))
     }
     
-    #View("AgeView", values:
-            .value("age", type: Int.self),
-          .value("name", type: String.self),
-    ) {
-        Text("Hello, World")
+    #View("ItemView", values: .value("user", type: User.self)) { user in
+        VStack {
+            Text(user.name)
+        }
     }
 }
 
-#Preview {
-    HomeView()
+class User: Codable {
+    var name: String
+    var birthday: Date
+    
+    init(name: String) {
+        self.name = name
+        self.birthday = Date()
+    }
 }
