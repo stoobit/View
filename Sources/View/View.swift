@@ -4,8 +4,8 @@
 import SwiftUI
 
 @freestanding(declaration, names: arbitrary)
-public macro View<Content: View>(
-    _ name: String, @ViewBuilder content: () -> Content
+public macro View<Content: View, each T>(
+    _ name: String, values: repeat Value<each T>, @ViewBuilder content: () -> Content
 ) = #externalMacro(
     module: "ViewMacros", type: "ViewMacro"
 )

@@ -18,7 +18,7 @@ final class ViewTests: XCTestCase {
         #if canImport(ViewMacros)
         assertMacroExpansion(
             """
-            #View("ListRowItem") {
+            #View("AgeView", values: .value("name", type: String.self), .value("age", type: Int.self)) {
                 Text("hi")
             }
             """,

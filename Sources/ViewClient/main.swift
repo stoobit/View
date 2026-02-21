@@ -3,10 +3,13 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        Hello()
+        AgeView(age: 10, name: "hi")
     }
     
-    #View("Hello") {
+    #View("AgeView", values:
+            .value("age", type: Int.self),
+          .value("name", type: String.self),
+    ) {
         Text("Hello, World")
     }
 }
